@@ -22,8 +22,6 @@ public class ElevatingCore : MonoBehaviour
         if (transform.position.y >= levelheight) {
             heightReached = true;
         }
-
-        
     }
 
     public bool CheckheightR() {

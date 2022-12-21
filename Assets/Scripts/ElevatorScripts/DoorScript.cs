@@ -15,7 +15,8 @@ public class DoorScript : MonoBehaviour
     [SerializeField] int NextSceneIndex;
     bool topreached = false;
     bool Encaged = false;
-    
+
+    public PlayerCore playerScript;
 
     void Start() {
         if (stagetype) {
@@ -23,9 +24,6 @@ public class DoorScript : MonoBehaviour
         }
     }
     
-    
-    
-
     void Update()
     {
         if (_Player.GetComponent<PlayerCore>().GetCoinCount() >= 3 && transform.position.y <= ElevationDis && topreached == false && frontgate == false) {
@@ -50,6 +48,7 @@ public class DoorScript : MonoBehaviour
 
         if (Elevator.GetComponent<ElevatingCore>().CheckheightR() && stagetype == false) {
             _Player.GetComponent<Gameinputs>().DisableControls();
+            playerScript.CoinCount = 0;
             Destroy(_Player);
             SceneManager.LoadScene(NextSceneIndex);
         }

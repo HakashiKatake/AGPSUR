@@ -1,17 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerCore : MonoBehaviour
 {
     [SerializeField] bool OnGround;
-    float CoinCount;
+    public float CoinCount;
     float Hp = 100;
-    void Update()
-    {
-        
-    }
+    [SerializeField] TMP_Text coinScore;
 
     public void _LoadScene(int Scene) {
         GetComponent<Gameinputs>().enabled = false;
@@ -22,12 +21,12 @@ public class PlayerCore : MonoBehaviour
         if (CallObj.gameObject.CompareTag("Ground")) {
             OnGround = true;
         }
-        
     }
 
     private void OnTriggerEnter2D(Collider2D CallObj) {
         if (CallObj.gameObject.CompareTag("coin")) {
             CoinCount += 1;
+            coinScore.text = CoinCount + " / 3";
             Destroy(CallObj.gameObject);
         }
     }
