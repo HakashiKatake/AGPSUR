@@ -9,6 +9,10 @@ public class PlayerCore : MonoBehaviour
 {
     [SerializeField] bool OnGround;
     public float CoinCount;
+<<<<<<< HEAD
+=======
+    float Hp = 100;
+>>>>>>> 5f922ef032bf2b73f1620b610feeffa41cd1dbd4
     [SerializeField] TMP_Text coinScore;
 
     public void _LoadScene(int Scene) {
