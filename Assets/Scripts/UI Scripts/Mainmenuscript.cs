@@ -9,6 +9,14 @@ public class Mainmenuscript : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void OnClick_Exit_Button() {
+       Application.Quit();
+    }
+
+    public void OnClick_Settings_Button() {
+        SceneManager.LoadScene(3);
+    }
+
     void Update()
     {
         
